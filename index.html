@@ -1,36 +1,47 @@
+<!DOCTYPE html>
 <html>
 <head>
-
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
 	<style type="text/css">
 
 
 	div{background-image: url('http://www.geocities.jp/miyano_mary/img/gameboard.png');background-repeat:no-repeat;}
-
-.mainframe{width:1000px;float:left;}
+a{padding: 2px;}
+.mainframe{width:1000px;margin-left: auto;
+    margin-right: auto;}
 .row2{width:1300px;float:left;}
 .row3{width:1300px;float:left;}
-.blk1a{width:300px;float:left;}
-.blk1b{width:300px;float:left;}
-.blk1c{width:300px;float:left;}
-.blk1d{width:300px;float:left;}
-.blk2a{width:300px;float:left;}
-.blk2b{width:300px;float:left;}
-.blk2c{width:300px;float:left;}
-.blk2d{width:300px;float:left;}
-.blk3a{width:300px;float:left;}
-.blk3b{width:300px;float:left;}
-.blk3c{width:300px;float:left;}
-.blk3d{width:300px;float:left;}
+.blk1a{width:400px;float:left;}
+.blk1b{width:400px;float:left;}
+.blk1c{width:400px;float:left;}
+.blk1d{width:400px;float:left;}
+.blk2a{width:400px;float:left;}
+.blk2b{width:400px;float:left;}
+.blk2c{width:400px;float:left;}
+.blk2d{width:400px;float:left;}
+.blk3a{width:400px;float:left;}
+.blk3b{width:400px;float:left;}
+.blk3c{width:400px;float:left;}
+.blk3d{width:400px;float:left;}
 
 .modalDialog {
 	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'PT Sans', sans-serif;
+	color: white;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(0,0,0,0.8);
+
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.33) 0%, rgba(246,246,246,0.33) 33%, rgba(241,241,241,0.5) 50%, rgba(225,225,225,0.51) 51%, rgba(246,246,246,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.33)), color-stop(33%,rgba(246,246,246,0.33)), color-stop(50%,rgba(241,241,241,0.5)), color-stop(51%,rgba(225,225,225,0.51)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+
 	z-index: 99999;
 	opacity:0;
 	-webkit-transition: opacity 400ms ease-in;
@@ -45,15 +56,23 @@
 }
 
 .modalDialog > div {
-	width: 1000px;
+	width: 600px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
-	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
+	border-radius: 2px;
+
+background: -moz-linear-gradient(top,  rgba(63,76,107,0.79) 0%, rgba(63,76,107,0.79) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,76,107,0.79)), color-stop(100%,rgba(63,76,107,0.79))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c93f4c6b', endColorstr='#c93f4c6b',GradientType=0 ); /* IE6-9 */
+
+
+
+
 }
 
 .close {
@@ -75,7 +94,7 @@
 	box-shadow: 1px 1px 3px #000;
 }
 
-.close:hover { background: #00d9ff; }
+.close:hover { background: #adadad; }
 
 .urlImg1a { width: 185px; height:185px; display:inline-block; background-image: url('http://www.geocities.jp/miyano_mary/img/1a.png'); background-repeat: no-repeat; } 
 .urlImg1a:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/1ax.png');background-repeat: no-repeat; }
@@ -135,7 +154,11 @@
 .urlImg4d:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/4dx.png'); background-repeat: no-repeat; }
 
 .urlImg4e { width: 185px; height:185px; display:inline-block; background-image: url('img/4e.png');background-repeat: no-repeat;  } 
-.urlImg4e:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/4dx.png');background-repeat: no-repeat;  }
+.urlImg4e:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/4ex.png');background-repeat: no-repeat;  }
+
+
+
+
 
 </style>
 </head>
@@ -144,14 +167,14 @@
 <div class="mainframe">
 	<a href="#openModal" class="urlImg1a"></a>
 	<div id="openModal" class="modalDialog">
-	<div>
+		<div>
 		<a href="#close" title="Close" class="close">X</a>
 		<h2>Modal Box1a</h2>
 		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
 		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
+		</div>
 	</div>
-</div>
-<a href="#openModal1a" class="urlImg1b"></a>
+	<a href="#openModal1a" class="urlImg1b"></a>
 	<div id="openModal1a" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
@@ -159,8 +182,8 @@
 		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
 		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
 	</div>
-</div>
-<a href="#openModal1b" class="urlImg1c"></a>
+	</div>
+	<a href="#openModal1b" class="urlImg1c"></a>
 	<div id="openModal1b" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
@@ -168,8 +191,8 @@
 		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
 		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
 	</div>
-</div>
-<a href="#openModal1c" class="urlImg1d"></a>
+	</div>
+	<a href="#openModal1c" class="urlImg1d"></a>
 	<div id="openModal1c" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
@@ -177,8 +200,8 @@
 		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
 		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
 	</div>
-</div>
-<a href="#openModal1d" class="urlImg1e"></a>
+	</div>
+	<a href="#openModal1d" class="urlImg1e"></a>
 	<div id="openModal1d" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
@@ -186,9 +209,9 @@
 		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
 		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
 	</div>
-</div>
-<br/>
-<a href="#openModal2a" class="urlImg2a"></a>
+	</div>
+	<br/>
+	<a href="#openModal2a" class="urlImg2a"></a>
 	<div id="openModal2a" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
