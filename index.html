@@ -1,311 +1,160 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
+
 <head>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>NTU Halls -> Snakes and Ladders</title>
+	<meta name="author" content="Antonio Pratas">
+	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<style type="text/css">
+		
+		/* Importing Amaranth Font for menu text */
+		@import url(http://fonts.googleapis.com/css?family=Amaranth);
 
-iframe{overflow: scroll;}
-	div{background-image: url('http://www.geocities.jp/miyano_mary/gameboardF.png');background-repeat:no-repeat; background-position: left top;}
-a{padding: 2px; border-style: solid; border-color: transparent;}
-.mainframe{width:900px; height:680px; margin-left: auto;
-    margin-right: auto;}
-.row2{width:1300px;float:left;}
-.row3{width:1300px;float:left;}
-.blk1a{width:400px;float:left;}
-.blk1b{width:400px;float:left;}
-.blk1c{width:400px;float:left;}
-.blk1d{width:400px;float:left;}
-.blk2a{width:400px;float:left;}
-.blk2b{width:400px;float:left;}
-.blk2c{width:400px;float:left;}
-.blk2d{width:400px;float:left;}
-.blk3a{width:400px;float:left;}
-.blk3b{width:400px;float:left;}
-.blk3c{width:400px;float:left;}
-.blk3d{width:400px;float:left;}
+		header, a, img, li{
+			transition: all 1s;
+			-moz-transition: all 1s; /* Firefox 4 */
+			-webkit-transition: all 1s; /* Safari and Chrome */
+			-o-transition: all 1s; /* Opera */
+		}
 
-.modalDialog {
-	position: fixed;
-	font-family: 'PT Sans', sans-serif;
-	color: white;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+		/* Basic layout */
+		body{
+			background-color: #ebebeb;
+		}
 
+		ul{
+			list-style-type: none;
+			float: right;
+		}
 
-background: -moz-linear-gradient(top,  rgba(255,255,255,0.33) 0%, rgba(246,246,246,0.33) 33%, rgba(241,241,241,0.5) 50%, rgba(225,225,225,0.51) 51%, rgba(246,246,246,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.33)), color-stop(33%,rgba(246,246,246,0.33)), color-stop(50%,rgba(241,241,241,0.5)), color-stop(51%,rgba(225,225,225,0.51)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(255,255,255,0.33) 0%,rgba(246,246,246,0.33) 33%,rgba(241,241,241,0.5) 50%,rgba(225,225,225,0.51) 51%,rgba(246,246,246,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+		li{
+			display: inline;
+			float: left;
+		}
 
-	z-index: 99999;
-	opacity:0;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
-	pointer-events: none;
-}
-
-.modalDialog:target {
-	opacity:1;
-	pointer-events: auto;
-}
-
-.modalDialog > div {
-	width: 600px;
-	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 2px;
+		img.logo{
+			float: left;
+		}
 
 
-background: -moz-linear-gradient(top,  rgba(63,76,107,0.79) 0%, rgba(63,76,107,0.79) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,76,107,0.79)), color-stop(100%,rgba(63,76,107,0.79))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(63,76,107,0.79) 0%,rgba(63,76,107,0.79) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c93f4c6b', endColorstr='#c93f4c6b',GradientType=0 ); /* IE6-9 */
+		nav{
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		section.stretch{
+			float: left;
+			height: 1500px;
+			width: 100%;
+		}
+
+			section.stretch p{
+				font-family: 'Amaranth', sans-serif;
+				font-size: 30px;
+				color: #969696;
+				text-align: center;
+				position: relative;
+				margin-top: 250px;
+			}
+
+			section.stretch p.bottom{
+				top: 100%;
+			}
 
 
+		header{
+			background: #C7C7C7;
+			border-bottom: 1px solid #aaaaaa;
+			float: left;
+			width: 100%;
+			position: fixed;
+			z-index: 10;
+		}
+
+			header a{
+				color: #969696;
+				text-decoration: none;
+				font-family: 'Amaranth', sans-serif;
+				text-transform: uppercase;
+			}
+
+			header a.active, header a:hover{
+				color: #3d3d3d;
+			}
+
+			header li{
+				margin-right: 30px;
+			}
+
+			/* Sizes for the bigger menu */
+			header.large{
+				height: 70px;
+			}
+
+			header.large img{
+				height: 63px;
+			}
+
+			header.large li{
+				margin-top: 30px;
+	
+			}
 
 
-}
+			/* Sizes for the smaller menu */
+			header.small{ 
+				height: 50px; 
+			}
 
-.close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
-}
+			header.small img{ 
+				width: 287px; 
+				height: 69px; 
+				margin-top: -10px; 
+			}
 
-.close:hover { background: #adadad; }
+			header.small li{ 
+				margin-top: 17px; 
+			}
 
-.urlImg1a { width: 200px; height:150px; display:inline-block; background-image: url('http://www.geocities.jp/miyano_mary/goal.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg1a:hover { background-image: url('http://www.geocities.jp/miyano_mary/goalx.png');background-repeat: no-repeat; background-position: center;}
+			.ccc{margin-left: auto;
+    margin-right: auto; width: 900px; }
 
-.urlImg1b { width: 200px; height:150px; display:inline-block; background-image: url('img/1b.png');background-repeat: no-repeat;  background-position: center;} 
-.urlImg1b:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/1bx.png'); background-repeat: no-repeat; background-position: center;}
+	</style>
 
-.urlImg1c { width: 200px; height:150px; display:inline-block; background-image: url('img/1c.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg1c:hover { background-image: url('http://www.geocities.jp/miyano_mary/NTnyaudi.png'); background-repeat: no-repeat; background-position: center;}
+	<script type="text/javascript">
+		$(document).on("scroll",function(){
+			if($(document).scrollTop()>100){ 
+				$("header").removeClass("large").addClass("small");
+				}
+			else{
+				$("header").removeClass("small").addClass("large");
+				}
+			});
+	</script>
 
-.urlImg1d { width: 200px; height:150px; display:inline-block; background-image: url('img/1d.png');background-repeat: no-repeat;  background-position: center;} 
-.urlImg1d:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/1dx.png'); background-repeat: no-repeat; background-position: center;}
-
-
-
-.urlImg2a { width: 200px; height:150px; display:inline-block; background-image: url('img/2a.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg2a:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/2ax.png'); background-repeat: no-repeat; background-position: center;}
-
-.urlImg2b { width: 200px; height:150px; display:inline-block; background-image: url('img/2b.png');background-repeat: no-repeat;  background-position: center;} 
-.urlImg2b:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/2bx.png');background-repeat: no-repeat;  background-position: center;}
-
-.urlImg2c { width: 200px; height:150px; display:inline-block; background-image: url('img/2c.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg2c:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/2cx.png');background-repeat: no-repeat;  background-position: center;}
-
-.urlImg2d { width: 200px; height:150px; display:inline-block; background-image: url('');background-repeat: no-repeat;  background-position: center;} 
-.urlImg2d:hover { background-image: url('http://www.geocities.jp/miyano_mary/NTpioneer.png');background-repeat: no-repeat; background-position: center; }
-
-
-
-.urlImg3a { width: 200px; height:150px; display:inline-block; background-image: url('img/3a.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg3a:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/3ax.png'); background-repeat: no-repeat; background-position: center;}
-
-.urlImg3b { width: 200px; height:150px; display:inline-block; background-image: url('img/3b.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg3b:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/3bx.png'); background-repeat: no-repeat; background-position: center;}
-
-.urlImg3c { width: 200px; height:150px; display:inline-block; background-image: url('img/3c.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg3c:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/3cx.png'); background-repeat: no-repeat; background-position: center;}
-
-.urlImg3d { width: 200px; height:150px; display:inline-block; background-image: url('img/3d.png'); background-repeat: no-repeat;background-position: center; } 
-.urlImg3d:hover { background-image: url('http://www.geocities.jp/miyano_mary/NThss.png'); background-repeat: no-repeat; background-position: center;}
-
-
-
-.urlImg4a { width: 200px; height:150px; display:inline-block; background-image: url('img/4a.png'); background-repeat: no-repeat; background-position: center;} 
-.urlImg4a:hover { background-image: url('http://www.geocities.jp/miyano_mary/img/4ax.png'); background-repeat: no-repeat; background-position: center;}
-
-.urlImg4b { width: 200px; height:150px; display:inline-block; background-image: url('img/4b.png');background-repeat: no-repeat;  background-position: center;} 
-.urlImg4b:hover { background-image: url('http://www.geocities.jp/miyano_mary/NTsiumai.png');background-repeat: no-repeat;  background-position: center;}
-
-.urlImg4c { width: 200px; height:150px; display:inline-block; background-image: url('img/4c.png');background-repeat: no-repeat;  background-position: center;} 
-.urlImg4c:hover { background-image: url('http://www.geocities.jp/miyano_mary/NTnsss.png');background-repeat: no-repeat; background-position: center; }
-
-
-
-.urlImg4d { width: 200px; height:150px; display:inline-block; background-image: url('');-webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;background-repeat: no-repeat;  background-position: center;} 
-.urlImg4d:hover { background-image: url('http://www.geocities.jp/miyano_mary/startx.png');background-repeat: no-repeat; background-position: center; }
-
-
-
-
-
-</style>
 </head>
+
 <body>
 
-<div class="mainframe">
-	<a href="#openModal" class="urlImg1a"></a>
-	<div id="openModal" class="modalDialog">
-		<div>
-		<a href="#close" title="Close" class="close">X</a>		
-		<iframe src="box1a.html" width="600" height="450"seamless frameborder="0" scrolling="yes"></iframe>
-		</div>
-	</div>
-	<a href="#openModal1a" class="urlImg1b"></a>
-	<div id="openModal1a" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box1b</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-	</div>
-	<a href="#openModal1b" class="urlImg1c"></a>
-	<div id="openModal1b" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box1c</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-	</div>
-	<a href="#openModal1c" class="urlImg1d"></a>
-	<div id="openModal1c" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box1d</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-	</div>
+<header class="large">
+		<nav>
+			<img class="logo" src="wdd.png"/>
+			<ul>
+				<li><a class="active" href="#">Home</a></li>
+				<li><a href="#">Posts</a></li>
+				<li><a href="#">Awesome Freebies</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<section class="stretch"><br/><br/><br/><br/>
+<div class="ccc"><iframe  src="gameboard.html" width="900" height="1000"></iframe></div>
+</section>
 	
 
-	<a href="#openModal2a" class="urlImg2a"></a>
-	<div id="openModal2a" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box2</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-<a href="#openModal2b" class="urlImg2b"></a>
-	<div id="openModal2b" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box2</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-<a href="#openModal2c" class="urlImg2c"></a>
-	<div id="openModal2c" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box2</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-<a href="#openModal2d" class="urlImg2d"></a>
-	<div id="openModal2d" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box2</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-
-<a href="#openModal3a" class="urlImg3a"></a>
-	<div id="openModal3a" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box3a</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal3b" class="urlImg3b"></a>
-	<div id="openModal3b" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box3b</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal3c" class="urlImg3c"></a>
-	<div id="openModal3c" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box3c</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal3d" class="urlImg3d"></a>
-	<div id="openModal3d" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box3d</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-<a href="#openModal4a" class="urlImg4a"></a>
-	<div id="openModal4a" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box4a</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal4b" class="urlImg4b"></a>
-	<div id="openModal4b" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box4b</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal4c" class="urlImg4c"></a>
-	<div id="openModal4c" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box4c</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div><a href="#openModal4d" class="urlImg4d"></a>
-	<div id="openModal4d" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Modal Box4d</h2>
-		<p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
-	</div>
-</div>
-</div>
-
 </body>
+
 </html>
