@@ -48,7 +48,7 @@ background-attachment: fixed;
     height: 100%;
     padding-top: 60px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg3.png");
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp1.png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -73,7 +73,7 @@ background-attachment: fixed;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp3.png");
+    background-image: url("png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -112,7 +112,7 @@ background-attachment: fixed;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp6.png");
+    background-image: url("png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -123,7 +123,51 @@ background-attachment: fixed;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg6.png");
+    background-image: url("png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.pic1 {
+    height: 100%;
+    padding-top: 60px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg1.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.pic2 {
+    height: 100%;
+    padding-top: 60px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg5.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.pic3 {
+    height: 100%;
+    padding-top: 60px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg3.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.pic4 {
+    height: 100%;
+    padding-top: 60px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg4.png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -135,7 +179,7 @@ background-attachment: fixed;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp7.png");
+    background-image: url("png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -160,8 +204,8 @@ background-attachment: fixed;
     padding-bottom: 50px;
 
     text-align: center;
-    background: #eee;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg8.png");
+
+    background-image: url("png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
