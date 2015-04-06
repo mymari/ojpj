@@ -129,6 +129,16 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 }
 
+.gallery{
+    height: 800px;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+    float: 
+}
+
 .ihg {
     padding-top: 50px;
     padding-bottom: 50px;
