@@ -137,15 +137,27 @@ background-attachment: fixed;
 }
 
 .contact-section {
-    height: 100%;
-    padding-top: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
     background: #eee;
 }
 
-.last-section {
-    height: 100%;
-    padding-top: 150px;
+.navi-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
     background: #eee;
+}
+.recce-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    text-align: center;
+    background: #eee;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg8.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
