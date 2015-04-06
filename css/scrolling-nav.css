@@ -33,11 +33,22 @@ p{line-height: 2;}
 The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
 of those sections to manage the look and feel of the site. */
 
-.intro-section {
+.Iintro-section {
+    height: 800px;
+    padding-top: 60px;
+    text-align: center;
+    background-image: url("png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.Sintro-section {
     height: 100%;
     padding-top: 60px;
     text-align: center;
-    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg4.png");
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg3.png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
@@ -65,9 +76,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', e
 
 }
 
-.about-section {
-    height: 1500px;
+.start{
     padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
     background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp3.png");
     -moz-background-size:cover;
@@ -78,17 +89,47 @@ background-attachment: fixed;
 
 .infogbox {height: 1144px;width: 640px; margin-left: auto;
     margin-right: auto;    padding: 20px;
-background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp8.png");
+background-color: white;}
+
+.about-section {
+height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background-image: url("png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
-background-attachment: fixed;}
+background-attachment: fixed;
+}
 
 .services-section {
-    height: 1500px;
+height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-image: url("http://webx.ntu.edu.sg/hall15/IMAGES/hall/room/DSC_0444.JPG");
+    background-image: url("png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.ivp {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp6.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+
+.comm {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ivp7.png");
     -moz-background-size:cover;
 background-size:cover;
 background-repeat: no-repeat;
