@@ -124,6 +124,17 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 }
 
+.ihg {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-image: url("http://www.geocities.jp/miyano_mary/pic/ihg6.png");
+    -moz-background-size:cover;
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
 
 .comm {
     padding-top: 50px;
